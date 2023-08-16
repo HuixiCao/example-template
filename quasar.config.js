@@ -88,7 +88,8 @@ module.exports = configure(function (ctx) {
             filename: 'remoteEntry.js',
             exposes: {},
             remotes: {
-              ui: `ui@${process.env.UI_URL}/remoteEntry.js`,
+              // ui: `ui@${process.env.UI_URL}/remoteEntry.js`,
+              ui: 'ui@https://mf-lib.vercel.app//remoteEntry.js',
             },
             shared: ['vue', 'quasar', '@quasar/extras', 'core-js'],
             // shared: {
