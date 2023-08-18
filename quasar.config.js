@@ -81,6 +81,7 @@ module.exports = configure(function (ctx) {
         chain.optimization.delete('splitChunks');
       },
       extendWebpack(cfg) {
+        // cfg.entry = path.resolve(__dirname, './.quasar/main.js'); // from step 1
         cfg.entry = path.resolve(__dirname, 'src/main.ts'); // from step 1
         cfg.plugins.push(
           new ModuleFederationPlugin({
@@ -88,8 +89,8 @@ module.exports = configure(function (ctx) {
             filename: 'remoteEntry.js',
             exposes: {},
             remotes: {
-              // ui: `ui@${process.env.UI_URL}/remoteEntry.js`,
-              ui: 'ui@https://mf-lib.vercel.app/remoteEntry.js',
+              ui: `ui@${process.env.UI_URL}/remoteEntry.js`,
+              // ui: 'ui@https://mf-lib.vercel.app/remoteEntry.js',
             },
             shared: ['vue', 'quasar', '@quasar/extras', 'core-js'],
             // shared: {
