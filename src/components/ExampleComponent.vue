@@ -5,6 +5,9 @@
   <div>
     <absentForm :formData="formData" />
   </div>
+  <div>
+    <LoginCard :databaseId="{ isRequired: false }" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -15,6 +18,7 @@ export default defineComponent({
     fpcButton: defineAsyncComponent(() => import('ui/components/fpcButton')),
     fpcButton2: defineAsyncComponent(() => import('ui/components/fpcButton2')),
     absentForm: defineAsyncComponent(() => import('ui/components/absentForm')),
+    LoginCard: defineAsyncComponent(() => import('ui/components/LoginCard')),
   },
   setup(props) {
     const formData = ref({
